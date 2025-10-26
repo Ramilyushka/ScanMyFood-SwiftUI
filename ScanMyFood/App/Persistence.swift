@@ -2,7 +2,7 @@
 //  Persistence.swift
 //  ScanMyFood
 //
-//  Created by Наиль on 24/10/25.
+//  Created by Ramilia on 24/10/25.
 //
 
 import CoreData
