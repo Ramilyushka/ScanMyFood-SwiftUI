@@ -68,7 +68,8 @@ final class ScannerViewModel: NSObject, ObservableObject {
     }
 
     func startSession() {
-        guard cameraAccessGranted else { return }   
+        scannedCode = nil
+        guard cameraAccessGranted else { return }
         DispatchQueue.global(qos: .background).async { [weak self] in
             guard let self else { return }
             if !session.isRunning {
