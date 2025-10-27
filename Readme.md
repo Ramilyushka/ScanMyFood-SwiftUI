@@ -56,6 +56,9 @@ cd ScanMyFood
         ❌ **-[не реализовано]** для QR
 
 # Скриншоты
+![2025-10-27 06 26 29](https://github.com/user-attachments/assets/a1ed9156-383a-41bf-b356-914160fc4962)
+![2025-10-27 06 26 44](https://github.com/user-attachments/assets/49d3626a-c991-4c64-9cf0-279070a24617)
+![2025-10-27 06 26 50](https://github.com/user-attachments/assets/2330b936-4031-41b5-9199-0043042a998d)
 
 # TODO:
     - Реализовать переиспользуемость компонентов
