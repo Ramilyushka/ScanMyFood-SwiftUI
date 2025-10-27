@@ -7,16 +7,7 @@
 
 struct ProductResponse: Codable {
     let code: String
-    let status: Int
-    let statusVerbose: String
     let product: Product?
-
-    enum CodingKeys: String, CodingKey {
-        case code
-        case status
-        case statusVerbose = "status_verbose"
-        case product
-    }
 }
 
 struct Product: Codable {

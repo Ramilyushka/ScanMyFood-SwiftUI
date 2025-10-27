@@ -74,7 +74,6 @@ final class ScannerViewModel: NSObject, ObservableObject {
             guard let self else { return }
             if !session.isRunning {
                 session.startRunning()
-                print("\(session.isRunning)")
             }
         }
     }

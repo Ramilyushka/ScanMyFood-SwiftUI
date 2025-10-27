@@ -26,7 +26,7 @@ struct MainTabView: View {
             }
             
             NavigationStack {
-                // HistoryView()
+                HistoryView()
             }
             .tabItem {
                 Label("История", systemImage: "list.dash.header.rectangle")

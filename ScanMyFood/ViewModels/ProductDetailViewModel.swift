@@ -12,6 +12,7 @@ final class ProductDetailViewModel: ObservableObject {
     @Published var state: State = .initial
     
     private let networkService: ProductNetworkProtocol
+    private let coreDataManager = CoreDataManager()
     
     init(networkService: ProductNetworkProtocol = ProductNetwork()) {
         self.networkService = networkService
@@ -27,7 +28,7 @@ final class ProductDetailViewModel: ObservableObject {
                 case .success(let response):
                     if let product = response.product {
                         self.state = .data(product)
-                        //self.coreDataManager.saveProduct(product)
+                        self.coreDataManager.saveProduct(product)
                     } else {
                         self.state = .failed("Нет продукта")
                     }

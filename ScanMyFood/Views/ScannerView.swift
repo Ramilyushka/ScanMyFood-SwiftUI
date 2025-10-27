@@ -17,11 +17,24 @@ struct ScannerView: View {
                 if viewModel.cameraAccessGranted {
                     CameraViewControllerRepresentable(session: viewModel.session)
                         .ignoresSafeArea()
-                    RoundedRectangle(cornerRadius: 20)
-                        .stroke(lineWidth: 4)
-                        .frame(width: 300, height: 260)
-                        .shadow(radius: 4)
-                    
+                    VStack(spacing: 40) {
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(lineWidth: 4)
+                            .frame(width: 280, height: 240)
+                            .shadow(radius: 4)
+                        
+                        Button {
+                            viewModel.toggleTorch()
+                        } label: {
+                            Image(systemName: viewModel.isTorchOn ? "flashlight.on.fill" : "flashlight.off.fill")
+                                .font(.system(size: 30))
+                                .foregroundColor(.white)
+                                .frame(width: 60, height: 60)
+                                .background(viewModel.isTorchOn ? Color.yellow : Color.gray)
+                                .clipShape(Circle())
+                                .shadow(radius: 4)
+                        }
+                    }
                 } else {
                     VStack(spacing: 20) {
                         Image(systemName: "camera.slash")
@@ -45,13 +58,6 @@ struct ScannerView: View {
             .onDisappear {
                 viewModel.stopSession()
             }
-            .toolbar {
-                Button {
-                    viewModel.toggleTorch()
-                } label: {
-                    Image(systemName: viewModel.isTorchOn ? "flashlight.on.fill" : "flashlight.off.fill")
-                }
-            }
             .onChange(of: viewModel.scannedCode) { newCode in
                 if let code = newCode {
                     path.append(code)
@@ -61,5 +67,6 @@ struct ScannerView: View {
                 ProductDetailView(barcode: barcode)
             }
         }
+        .navigationTitle("Сканировать")
     }
 }

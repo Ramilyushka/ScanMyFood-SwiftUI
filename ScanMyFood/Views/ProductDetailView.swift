@@ -41,10 +41,10 @@ struct ProductDetailView: View {
                     }
 
                     VStack(alignment: .leading, spacing: 8) {
+                        Text(product.productName ?? "Без названия")
+                            .font(.title2.bold())
                         Text("Штрихкод: \(product.code ?? "-")")
                             .foregroundColor(.secondary)
-                        Text("Название: \(product.productName ?? "-")")
-                            .font(.title2.bold())
                         Text("Бренд: \(product.brands ?? "-")")
                             .foregroundColor(.secondary)
                         Text("Состав: \(product.ingredientsText ?? "-")")
