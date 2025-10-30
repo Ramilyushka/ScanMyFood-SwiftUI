@@ -7,6 +7,8 @@
 import SwiftUI
 
 struct ProductDetailView: View {
+    typealias NutriKey = Nutriments.CodingKeys
+    
     let barcode: String
     @StateObject private var viewModel = ProductDetailViewModel()
     
@@ -58,12 +60,13 @@ struct ProductDetailView: View {
                             .padding(.bottom, 4)
                         
                         VStack(alignment: .leading, spacing: 4) {
-                            Text("Энергия: \(Int(nutr.energyKcal ?? 0)) ккал")
-                            Text("Белки: \(nutr.proteins ?? 0, specifier: "%.1f") г")
-                            Text("Жиры: \(nutr.fat ?? 0, specifier: "%.1f") г")
-                            Text("Углеводы: \(nutr.carbohydrates ?? 0, specifier: "%.1f") г")
-                            Text("Сахара: \(nutr.sugars ?? 0, specifier: "%.1f") г")
-                            Text("Соль: \(nutr.salt ?? 0, specifier: "%.1f") г")
+                            NutrimentRow(key: NutriKey.energyKcal, value: nutr.energyKcal)
+                            NutrimentRow(key: NutriKey.proteins, value: nutr.proteins)
+                            NutrimentRow(key: NutriKey.fat, value: nutr.fat)
+                            NutrimentRow(key: NutriKey.saturatedFat, value: nutr.saturatedFat)
+                            NutrimentRow(key: NutriKey.carbohydrates, value: nutr.carbohydrates)
+                            NutrimentRow(key: NutriKey.sugars, value: nutr.sugars)
+                            NutrimentRow(key: NutriKey.salt, value: nutr.salt)
                         }
                         .font(.subheadline)
                         .foregroundColor(.secondary)

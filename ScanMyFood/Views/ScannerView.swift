@@ -15,8 +15,10 @@ struct ScannerView: View {
         NavigationStack(path: $path) {
             ZStack {
                 if viewModel.cameraAccessGranted {
+                    
                     CameraViewControllerRepresentable(session: viewModel.session)
                         .ignoresSafeArea()
+                    
                     VStack(spacing: 40) {
                         RoundedRectangle(cornerRadius: 20)
                             .stroke(lineWidth: 4)
